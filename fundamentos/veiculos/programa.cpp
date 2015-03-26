@@ -5,6 +5,13 @@
  *      Author: gian
  */
 
+/**
+ * @file programa.cpp
+ * @brief
+ *
+ *
+ */
+
 #include <iostream>
 #include <iomanip>
 
@@ -18,6 +25,12 @@ struct veiculo {
     float valor;
 };
 
+/**
+ * @fn void cadastrar(struct veiculo ll[], int& pos)
+ *
+ * @param ll
+ * @param pos
+ */
 void cadastrar(struct veiculo ll[], int& pos);
 void listar(struct veiculo ll[], int qtd_cadastrada);
 
@@ -27,7 +40,7 @@ int main() {
 
     do {
         cout << "Exercicio 01"<<endl;
-        cout << "1-Cadastrar\n2-Listar Estoque\n99-Sair\nOcao: ";
+        cout << "1-Cadastrar\n2-Listar Estoque\n99-Sair\nOpcao: ";
         cin >> opcao;
         cin.ignore(1000, '\n');
         switch(opcao) {
