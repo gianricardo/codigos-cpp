@@ -57,10 +57,11 @@ int main() {
             cout << "Opcao inválida!" << endl;
         }
     } while(opcao!=99);
-    return 0;
+    return (0);
 }
 
 void cadastrar(struct veiculo ll[], int& pos) {
+	//@ assert pos<TAM_ESTOQUE
     if(pos<TAM_ESTOQUE&&pos>=0) {
         cout << "                CADASTRO                                         " <<endl;
         cout << "=================================================================" <<endl;

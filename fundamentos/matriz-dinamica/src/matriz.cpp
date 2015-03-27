@@ -44,7 +44,7 @@ int main()
     delete [] matrix;
 
     cin.get();
-    return 0;
+    return (0);
 }
 
 
