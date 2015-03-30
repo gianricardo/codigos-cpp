@@ -1,14 +1,13 @@
-/*
- * programa.cpp
- *
- *  Created on: Mar 26, 2015
- *      Author: gian
- */
-
 /**
  * @file programa.cpp
- * @brief
  *
+ * Enunciado:
+ *
+ *  Implemente um programa de cadastro de veículos de uma loja (máximo 30). Use uma estrutura
+ *  contendo: marca, modelo, ano e valor. Implemente uma função de cadastro e uma função que
+ *  imprime na tela um relatório contendo o inventário do estoque.
+ *
+ * <HR>
  *
  */
 
