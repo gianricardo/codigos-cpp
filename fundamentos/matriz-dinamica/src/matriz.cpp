@@ -9,10 +9,10 @@
  *  Leia uma matriz 4x4 de um arquivo e escreva em outro arquivo a transposta da matriz. O conteúdo
  *  do arquivo deve seguir o exemplo abaixo. A matriz deve ser dinâmica.
  *
- *  2 4 5 8
- *  1 6 2 9
- *  3 7 6 5
- *  1 3 5 7
+ *  2 4 5 8<BR>
+ *  1 6 2 9<BR>
+ *  3 7 6 5<BR>
+ *  1 3 5 7<BR>
  *
  * <HR>
  *
