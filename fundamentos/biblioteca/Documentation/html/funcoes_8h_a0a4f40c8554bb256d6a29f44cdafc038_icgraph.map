@@ -1,0 +1,7 @@
+<map id="solicitar_codigo" name="solicitar_codigo">
+<area shape="rect" id="node2" href="$funcoes_8h.html#ae130861d4e46d52e21548071b3d678ca" title="Consulta os dados do livro e apresenta ao usuário. " alt="" coords="168,5,243,32"/>
+<area shape="rect" id="node5" href="$funcoes_8h.html#ac7fff77707a6e774c60240e2652f462a" title="Realiza a devolução de um livro emprestado. " alt="" coords="170,56,241,83"/>
+<area shape="rect" id="node6" href="$funcoes_8h.html#a64c1ed573cc782f82a0e5ecee4f3e55e" title="Realiza o empréstimo de um livro emprestado. " alt="" coords="165,107,245,133"/>
+<area shape="rect" id="node3" href="$funcoes_8h.html#a29ce450824bf669cd562ed2a5824987e" title="Função para executar a opção escolhida pelo usuário. " alt="" coords="293,56,344,83"/>
+<area shape="rect" id="node4" href="$livros_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Função principal do programa. " alt="" coords="392,56,443,83"/>
+</map>

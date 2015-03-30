@@ -1,0 +1,8 @@
+<map id="acao" name="acao">
+<area shape="rect" id="node2" href="$comportamentos-funcoes_8cpp.html#aa85dd55462d0597c63e604a9d00c14b5" title="Realiza o cadastro de um livro. " alt="" coords="106,5,182,32"/>
+<area shape="rect" id="node4" href="$comportamentos-funcoes_8cpp.html#ae130861d4e46d52e21548071b3d678ca" title="Consulta os dados do livro e apresenta ao usuário. " alt="" coords="107,56,181,83"/>
+<area shape="rect" id="node6" href="$comportamentos-funcoes_8cpp.html#ac7fff77707a6e774c60240e2652f462a" title="Realiza a devolução de um livro emprestado. " alt="" coords="109,107,179,133"/>
+<area shape="rect" id="node7" href="$comportamentos-funcoes_8cpp.html#a64c1ed573cc782f82a0e5ecee4f3e55e" title="Realiza o empréstimo de um livro emprestado. " alt="" coords="104,157,184,184"/>
+<area shape="rect" id="node3" href="$comportamentos-funcoes_8cpp.html#a737537b05e55e1c792ea76100b7f26ac" title="Função que busca no vetor, o livro com o respectivo código fornecido. " alt="" coords="239,56,337,83"/>
+<area shape="rect" id="node5" href="$comportamentos-funcoes_8cpp.html#a0a4f40c8554bb256d6a29f44cdafc038" title="Função que questiona o usuário para fornecer um código. " alt="" coords="232,107,344,133"/>
+</map>

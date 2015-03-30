@@ -46,6 +46,10 @@ typedef struct livro ELivro;
  *
  * Após solicita ao usuário a opção desejada.
  *
+ * @callgraph
+ *
+ * @callergraph
+ *
  * @return Opção escolhida pelo usuário.
  */
 int menu();
@@ -53,6 +57,10 @@ int menu();
 /**
  * @fn void acao(ELivro livros[], int opcao_menu)
  * Função para executar a opção escolhida pelo usuário.
+ *
+ * @callgraph
+ *
+ * @callergraph
  *
  * @param livros Vetor com os livros disponíveis no programa.
  * @param opcao_menu Opção de @c menu que o usuário escolheu.
@@ -64,6 +72,10 @@ void acao(ELivro livros[], int opcao_menu);
  * Função que questiona o usuário para fornecer um código. Esse código será usado para buscar o livro relacionado
  * com ele.
  *
+ * @callgraph
+ *
+ * @callergraph
+ *
  * @return Código de um livro fornecido pelo usuário.
  */
 std::string solicitar_codigo();
@@ -71,6 +83,10 @@ std::string solicitar_codigo();
 /**
  * @fn int procurarLivro(std::string codigoParaProcurar, ELivro livros[])
  * Função que busca no vetor, o livro com o respectivo código fornecido.
+ *
+ * @callgraph
+ *
+ * @callergraph
  *
  * @param codigoParaProcurar Código de identificação de um livro
  * @param livros Vetor com os livros disponíveis no programa.
@@ -85,6 +101,8 @@ int procurarLivro(std::string codigoParaProcurar, ELivro livros[]);
  *
  * @callgraph
  *
+ * @callergraph
+ *
  * @param livros Vetor com os livros disponíveis no programa.
  */
 void cadastrar(ELivro livros[]);
@@ -94,6 +112,10 @@ void cadastrar(ELivro livros[]);
  * Consulta os dados do livro e apresenta ao usuário. Nessa função é solicitado um código de dois dígitos ao usuário.
  * Com esse código uma busca é feita no vetor. Caso o livro seja encontrado, seus dados são apresentados.
  * Caso contrário, uma mensagem é apresentada.
+ *
+ * @callgraph
+ *
+ * @callergraph
  *
  * @param livros Vetor com os livros disponíveis no programa.
  */
@@ -106,6 +128,10 @@ void consultar(ELivro livros[]);
  * Caso o livro seja encontrado, será realizado a devolução do livro (emprestado = @c false).
  * Caso contrário, uma mensagem é apresentada.
  *
+ * @callgraph
+ *
+ * @callergraph
+ *
  * @param livros Vetor com os livros disponíveis no programa.
  */
 void devolver(ELivro livros[]);
@@ -116,6 +142,10 @@ void devolver(ELivro livros[]);
  * Com esse código uma busca é feita no vetor.
  * Caso o livro seja encontrado, será realizado o empréstimo (emprestado = @c true).
  * Caso contrário, uma mensagem é apresentada.
+ *
+ * @callgraph
+ *
+ * @callergraph
  *
  * @param livros Vetor com os livros disponíveis no programa.
  */
