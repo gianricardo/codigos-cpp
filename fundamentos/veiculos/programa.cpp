@@ -14,10 +14,18 @@
 #include <iostream>
 #include <iomanip>
 
+/**
+ * @def TAM_ESTOQUE
+ */
 #define TAM_ESTOQUE 30
 
 using namespace std;
 
+/**
+ * @struct veiculo
+ * Estrutura que descreve o veículo de acordo com o enunciado.
+ *
+ */
 struct veiculo {
     string marca, modelo;
     int ano;
@@ -26,31 +34,46 @@ struct veiculo {
 
 /**
  * @fn void cadastrar(struct veiculo ll[], int& pos)
+ *	Solicita ao usuário as informações do veículo. Armazena no vetor @c ll os dados do veículo na posição @c pos.
  *
- * @param ll
- * @param pos
+ * @param ll vetor que contêm os veículos.
+ * @param pos posição para cadastrar o veículo.
  */
 void cadastrar(struct veiculo ll[], int& pos);
+
+/**
+ * @fn void listar(struct veiculo ll[], int qtd_cadastrada)
+ * Lista na saída padrão todos os veículos cadastrados em @c ll.
+ *
+ * @param ll vetor que contêm os veículos.
+ * @param qtd_cadastrada quantidade de carros no vetor.
+ */
 void listar(struct veiculo ll[], int qtd_cadastrada);
 
+/**
+ * @fn int main()
+ * @brief Função principal do programa.
+ *
+ * @return Status de fim do programa.
+ */
 int main() {
     struct veiculo estoque[TAM_ESTOQUE];
     int opcao=0,posicao_cadastro=0;
 
     do {
         cout << "Exercicio 01"<<endl;
-        cout << "1-Cadastrar\n2-Listar Estoque\n99-Sair\nOpcao: ";
+        cout << "1-Cadastrar\n2-Listar Estoque\n99-Sair\nOpcao: ";/*Imprime o menu.*/
         cin >> opcao;
         cin.ignore(1000, '\n');
         switch(opcao) {
         case 1:
-            cadastrar(estoque,posicao_cadastro);
+            cadastrar(estoque,posicao_cadastro);/*chama a função cadastrar*/
             break;
         case 2:
-            listar(estoque,posicao_cadastro);
+            listar(estoque,posicao_cadastro);/*chama a função para listar o estoque*/
             break;
         case 99:
-            cout << "SAINDO ... "<<endl;
+            cout << "SAINDO ... "<<endl;/*Acaba o programa*/
             break;
         default:
             cout << "Opcao inválida!" << endl;
@@ -61,7 +84,7 @@ int main() {
 
 void cadastrar(struct veiculo ll[], int& pos) {
 	//@ assert pos<TAM_ESTOQUE
-    if(pos<TAM_ESTOQUE&&pos>=0) {
+    if(pos<TAM_ESTOQUE&&pos>=0) {/*Verifica se é uma posição válida*/
         cout << "                CADASTRO                                         " <<endl;
         cout << "=================================================================" <<endl;
         cout << "Marca : ";
