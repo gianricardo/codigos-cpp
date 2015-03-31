@@ -25,32 +25,38 @@
 
 using namespace std;
 
+/**
+ * @fn int main()
+ * @brief Função principal do programa.
+ *
+ * @return Status de fim do programa.
+ */
 int main()
 {
     int nr_linha=4,nr_coluna=4,i,x,y;
-    ifstream matriz("m2.txt");
-    ofstream matriztransposta("m2.transposta.txt");
+    ifstream matriz("m2.txt");/*Arquivo de entrada para leitura*/
+    ofstream matriztransposta("m2.transposta.txt");/*Arquivo de saida para escrita*/
 
-    //cria a matriz dinamicamente
+    /*cria a matriz dinamicamente*/
     int** matrix = new int*[nr_linha];
     for (i = 0; i < nr_linha; ++i)
         matrix[i] = new int[nr_coluna];
 
-    //ler a matriz
+    /*ler a matriz*/
     if (matriz.is_open()) {
-    	for(x=0;x<nr_linha;x++){
-    		for(y=0;y<nr_coluna;y++){
+    	for(x=0;x<nr_linha;x++){/*Laço para linha*/
+    		for(y=0;y<nr_coluna;y++){/*Laço para a coluna*/
     			matriz >> matrix[x][y];
     		}
     	}
     }else {
       cout << "Não foi possivel abrir o arquivo de entrada.";
     }
-    matriz.close();
-    //transpor a matriz
+    matriz.close();/*Finaliza a leitura*/
+    /*transpor a matriz*/
     if (matriztransposta.is_open()) {
-    	for(y=0;y<nr_coluna;y++){
-    		for(x=0;x<nr_linha;x++){
+    	for(y=0;y<nr_coluna;y++){/*Laço para a coluna*/
+    		for(x=0;x<nr_linha;x++){/*Laço para linha*/
     			matriztransposta << matrix[x][y]<<" ";
     		}
     		matriztransposta<<std::endl;
@@ -58,11 +64,11 @@ int main()
     }else {
       cout << "Não foi possivel abrir o arquivo de saida.";
     }
-    matriztransposta.close();
-    //libera a memória da matriz
-    for (i = 0; i < nr_linha; ++i)
+    matriztransposta.close();/*Finaliza a escrita da matriz*/
+    /*libera a memória da matriz*/
+    for (i = 0; i < nr_linha; ++i)/*Libera o vetor das linhas*/
         delete [] matrix[i];
-    delete [] matrix;
+    delete [] matrix;/*Libera o último vetor*/
     return (0);
 }
 
