@@ -1,0 +1,14 @@
+13
+raul seixas;twittwer 1;facebook do 1;4;1;123456789
+nome 2;t2;f2;2;2;987654
+giuberto barros;@silva;gilbertosilva;5;3;23456789
+joao jose;t2;joao_jose_no_face;2;4;987654
+gilberto da silva;@silva;gilbertosilva;5;5;23456789
+roberto carlos;t2;f2;27;6;987654
+arnaldo antunes;@arnaldo;arnaldo_perdido;23;7;11234560987
+adorinan pedra;@silva;gilbertosilva;5;8;23456789
+kross davi;@silva;gilbertosilva;25;9;23456789
+maria joao;twittwer 1;facebook do 1;1;10;123456789
+tim maia;twittwer 1;facebook do 1;10;10;123456789
+alberto santos;twittwer 1;facebook do 1;1;11;123456789
+joao maria;t2;f2;2;12;987654
