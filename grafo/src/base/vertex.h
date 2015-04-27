@@ -1,86 +1,66 @@
 /*
  * vertex.h
  *
- *  Created on: Apr 24, 2015
+ *  Created on: Apr 27, 2015
  *      Author: gian
  */
 
 #ifndef VERTEX_H_
 #define VERTEX_H_
 
-#include <string>
-#include <list>
-#include "edge.h"
+#include "vertexbase.h"
+#include "arc.h"
 
 namespace graphlib {
 
-template<class Tipo_Info_Vertex, class Tipo_Info_Edge = Tipo_Info_Vertex>
-class Vertex {
+template<class Tipo_Info_Vertex, class Tipo_Info_Arc = Tipo_Info_Vertex>
+class Vertex: public VertexBase<Tipo_Info_Vertex, Tipo_Info_Arc> {
 public:
-    Vertex() :
-            _name("") {
+    Vertex() {
     }
     Vertex(std::string name) :
-            _name(name) {
+            VertexBase<Tipo_Info_Vertex, Tipo_Info_Arc>(name) {
     }
     virtual ~Vertex() {
-        /*
-         * Releasing the out-edges' memory.
-         * It does not need to release the in-edges' memory, because other vertices will release them as out-edges.
-         */
-        for (auto edge : _edge_v0) {
-            delete edge;
-        }
     }
     //
-    Tipo_Info_Vertex info() {
-        return _info;
+    void add_from_arc(Arc<Tipo_Info_Arc> *arc) {
+        VertexBase<Tipo_Info_Vertex, Tipo_Info_Arc>::add_v0_edge(arc);
     }
-    void info(Tipo_Info_Vertex i) {
-        _info = i;
+    void add_to_arc(Arc<Tipo_Info_Arc> *arc) {
+        VertexBase<Tipo_Info_Vertex, Tipo_Info_Arc>::add_v1_edge(arc);
     }
-    //
-    void add_v0_edge(Edge<Tipo_Info_Edge> *edge) {
-        _edge_v0.push_back(edge);
+    void remove_from_arc(Arc<Tipo_Info_Arc> *arc) {
+        VertexBase<Tipo_Info_Vertex, Tipo_Info_Arc>::remove_v0_edge(arc);
     }
-    void add_v1_edge(Edge<Tipo_Info_Edge> *edge) {
-        _edge_v1.push_back(edge);
+    void remove_to_arc(Arc<Tipo_Info_Arc> *arc) {
+        VertexBase<Tipo_Info_Vertex, Tipo_Info_Arc>::remove_v1_edge(arc);
     }
-    //
-    void remove_v0_edge(Edge<Tipo_Info_Edge> *edge) {
-        _edge_v0.remove(edge);
+    const std::list<std::string> to_vertex_list() const {
+        return VertexBase<Tipo_Info_Vertex, Tipo_Info_Arc>::list_to_v1();
     }
-    void remove_v1_edge(Edge<Tipo_Info_Edge> *edge) {
-        _edge_v1.remove(edge);
+    Arc<Tipo_Info_Arc>* arc_to(std::string v) {
+        return  VertexBase<Tipo_Info_Vertex, Tipo_Info_Arc>::edge_to(v);
     }
-    //
-    bool exist_edge_to(std::string v){
-        bool exist_edge=false;
-        for(auto vv:_edge_v0){
-            if(vv->v1()==v){
-                exist_edge=true;
-                break;
-            }
-        }
-        return exist_edge;
+    int degree_out()const {
+        return VertexBase<Tipo_Info_Vertex, Tipo_Info_Arc>::degree_v0();
     }
 
-    Edge<Tipo_Info_Edge>* edge_to(std::string v){
-        Edge<Tipo_Info_Edge>* edge_to_v1=nullptr;
-        for(auto vv:_edge_v0){
-            if(vv->v1()==v){
-                edge_to_v1=vv;
-                break;
-            }
-        }
-        return edge_to_v1;
+    int degree_in()const{
+        return VertexBase<Tipo_Info_Vertex, Tipo_Info_Arc>::degree_v1();
     }
 
-private:
-    Tipo_Info_Vertex _info;
-    std::string _name;
-    std::list<Edge<Tipo_Info_Edge> *> _edge_v0, _edge_v1;
+    int degree()const{
+        return (degree_out()+degree_in());
+    }
 
+    const std::list<Arc<Tipo_Info_Arc> *> out_arc_list()const{
+        return VertexBase<Tipo_Info_Vertex, Tipo_Info_Arc>::list_edge_v0();
+    }
+
+    const std::list<Arc<Tipo_Info_Arc> *> in_arc_list()const{
+        return VertexBase<Tipo_Info_Vertex, Tipo_Info_Arc>::list_edge_v1();
+    }
 };
 
 } /* namespace graphlib */
