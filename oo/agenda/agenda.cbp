@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="agenda" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/agenda" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/agenda" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-O2" />
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="agenda.txt" />
+		<Unit filename="programa.cc" />
+		<Unit filename="src/agenda.cc" />
+		<Unit filename="src/agenda.h" />
+		<Unit filename="src/alterar_menu_item.cc" />
+		<Unit filename="src/alterar_menu_item.h" />
+		<Unit filename="src/cadastrar_menu_item.cc" />
+		<Unit filename="src/cadastrar_menu_item.h" />
+		<Unit filename="src/consultar_data_menu_item.cc" />
+		<Unit filename="src/consultar_data_menu_item.h" />
+		<Unit filename="src/consultar_letra_menu_item.cc" />
+		<Unit filename="src/consultar_letra_menu_item.h" />
+		<Unit filename="src/consultar_mes_menu_item.cc" />
+		<Unit filename="src/consultar_mes_menu_item.h" />
+		<Unit filename="src/contato.cc" />
+		<Unit filename="src/contato.h" />
+		<Unit filename="src/data_aniversario.cc" />
+		<Unit filename="src/data_aniversario.h" />
+		<Unit filename="src/excluir_menu_item.cc" />
+		<Unit filename="src/excluir_menu_item.h" />
+		<Unit filename="src/menu.cc" />
+		<Unit filename="src/menu.h" />
+		<Unit filename="src/menu_item.cc" />
+		<Unit filename="src/menu_item.h" />
+		<Unit filename="src/mostrar_mes_menu_item.cc" />
+		<Unit filename="src/mostrar_mes_menu_item.h" />
+		<Unit filename="src/mostrar_nome_menu_item.cc" />
+		<Unit filename="src/mostrar_nome_menu_item.h" />
+		<Unit filename="src/sair_menu_item.cc" />
+		<Unit filename="src/sair_menu_item.h" />
+		<Unit filename="src/tela.cc" />
+		<Unit filename="src/tela.h" />
+		<Unit filename="src/util.cc" />
+		<Unit filename="src/util.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
