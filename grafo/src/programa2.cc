@@ -13,6 +13,11 @@
  * TODO Digrafo
  * TODO Multigrafo
  * TODO Grafo ponderado
+ * TODO conj. independetes
+ * TODO scp
+ * TODO spp
+ * TODO coloração
+ * TODO planar
  *
  */
 
