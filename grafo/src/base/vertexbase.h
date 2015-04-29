@@ -102,7 +102,7 @@ public:
     }
 
     int degree()const{
-        return (degree_v0()+degree_v1());
+        return (degree_v0());
     }
 
     const std::list<Edge<Tipo_Info_Edge> *> list_edge_v0()const{

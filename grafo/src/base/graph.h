@@ -69,6 +69,9 @@ public:
                 auto edge_erase = v_0->edge_to(v1);
                 v_0->remove_v0_edge(edge_erase);
                 v_1->remove_v1_edge(edge_erase);
+                auto edge_erase2 = v_1->edge_to(v0);
+                v_1->remove_v0_edge(edge_erase2);
+                v_0->remove_v1_edge(edge_erase2);
             }
         }
     }
