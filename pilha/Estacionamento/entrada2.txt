@@ -1,0 +1,22 @@
+E 1234567890
+E Qwpeuoirhasdfg
+E lkjahsdfglkajhsf
+E 23456poius
+E 123
+E 1234
+E 23456
+E 234
+E 2345
+E 345
+E 3456
+S 345
+S 2345
+S 234
+S 23456
+S 1234
+S 123
+S 23456poius
+S lkjahsdfglkajhsf
+S Qwpeuoirhasdfg
+S 1234567890
+FIM
