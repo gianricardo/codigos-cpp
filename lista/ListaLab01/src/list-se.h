@@ -123,6 +123,36 @@ public:
     Codigo_erro insere(int posicao, const Tipo_info &x) {
         throw Codigo_erro::sem_comportamento;
     }
+    /**
+     * Pre:  posicao é uma posição válida na lista; 0 <= posicao < _quantidade_lista.
+     * Pos:  Returna um ponteiro para o Nó na posição ou nullptr caso contrário.
+     *
+     * @param posicao uma posição na lista
+     * @return um ponteiro para o nó ou nulo se não estiver na lista.
+     */
+    Node<Tipo_info>* node(int posicao) {
+        throw Codigo_erro::sem_comportamento;
+    }
+    /**
+     * Retorna o nó anterior ao node.
+     *
+     * @param node ponteiro válido para um nó da lista
+     * @return um ponteiro para o anterior ou nullptr caso não seja possível encontrá-lo.
+     */
+    Node<Tipo_info>* prev(Node<Tipo_info>* node) {
+        throw Codigo_erro::sem_comportamento;
+    }
+
+    /**
+     * Retorna o nó seguinte ao node.
+     *
+     * @param node ponteiro válido para um nó da lista
+     * @return um ponteiro para o seguinte ou nullptr caso não seja possível encontrá-lo.
+     */
+    Node<Tipo_info>* next(Node<Tipo_info>* node) {
+        throw Codigo_erro::sem_comportamento;
+    }
+
 protected:
     /**
      * Pre:  posicao é uma posição válida na lista; 0 <= posicao < _quantidade_lista.
