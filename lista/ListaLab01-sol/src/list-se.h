@@ -157,7 +157,7 @@ public:
         anterior=_inicio;
         long count_ex=0;
         //seguinte=anterior->next();
-        while(seguinte!=nullptr){
+        while(anterior!=nullptr){
             excluido=anterior;
             anterior=anterior->next();
             if(excluido->info()==x){
