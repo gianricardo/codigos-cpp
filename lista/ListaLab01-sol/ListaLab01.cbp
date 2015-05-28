@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ListaLab01" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/ListaLab01" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++0x" />
+					<Add option="-g" />
+					<Add option="-fpermissive" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/ListaLab01" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++0x" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="codigo_erro.h" />
+		<Unit filename="list-de-cur.h" />
+		<Unit filename="list-de-fim.h" />
+		<Unit filename="list-de.h" />
+		<Unit filename="list-dec.h" />
+		<Unit filename="list-se-cur.h" />
+		<Unit filename="list-se-fim.h" />
+		<Unit filename="list-se.h" />
+		<Unit filename="list-sec.h" />
+		<Unit filename="node.h" />
+		<Unit filename="programa.cc" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

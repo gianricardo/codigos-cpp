@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="codigo_erro.h" open="0" top="0" tabpos="0">
+		<Cursor position="152" topLine="0" />
+	</File>
+	<File name="list-se.h" open="0" top="0" tabpos="1">
+		<Cursor position="127" topLine="0" />
+	</File>
+	<File name="node.h" open="0" top="0" tabpos="0">
+		<Cursor position="125" topLine="0" />
+	</File>
+	<File name="programa.cc" open="0" top="0" tabpos="2">
+		<Cursor position="345" topLine="10" />
+	</File>
+</CodeBlocks_layout_file>

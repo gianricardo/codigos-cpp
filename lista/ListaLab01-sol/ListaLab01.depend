@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1432304286 source:/home/ufscjoi/Documentos/Projetos5903/ListaLab01/programa.cc
+	<iostream>
+	"node.h"
+
+1432735864 /home/ufscjoi/Documentos/Projetos5903/ListaLab01/node.h
+	"codigo_erro.h"
+
+1432301440 /home/ufscjoi/Documentos/Projetos5903/ListaLab01/codigo_erro.h
+
+1432834200 source:/home/ufsc/Documentos/5903/ListaLab01/programa.cc
+	<iostream>
+	<iomanip>
+	"list-se.h"
+
+1432833902 /home/ufsc/Documentos/5903/ListaLab01/node.h
+	"codigo_erro.h"
+
+1432301440 /home/ufsc/Documentos/5903/ListaLab01/codigo_erro.h
+
+1432833902 /home/ufsc/Documentos/5903/ListaLab01/list-se.h
+	"node.h"
+
