@@ -1,61 +1,50 @@
 /*
- * list-se.h
+ * ilist.h
  *
- *  Created on: May 22, 2015
+ *  Created on: Jun 1, 2015
  *      Author: gian
  */
 
-#ifndef LIST_SE_H_
-#define LIST_SE_H_
+#ifndef ILIST_H_
+#define ILIST_H_
 
+#include "codigo_erro.h"
 #include "node.h"
-#include "ilist.h"
+#include "visitor.h"
 
 /**
  * Complete a implementação da Lista Simplesmente Encadeada.
  * Onde não está definido a pré-condição é a lista estar criada.
  */
+template<class Tipo_info, class Node_class = Node<Tipo_info> >
+class IList {
 
-template<class Tipo_info>
-class ListaSE : public IList<Tipo_info>{
-    Node<Tipo_info> *_inicio; //referencia para o nó que inicia a lista
-    long _quantidade_lista;  //quantidade de nós na lista
 public:
-    ListaSE() :
-            _quantidade_lista(0), _inicio(nullptr) {
-    }
-    ~ListaSE() {
-        //precisa limpar algo?
+    virtual ~IList() {
     }
     /**
      * Pós-condição: returna a quantidade de nós/entradas/células presente na lista.
      */
-    long tamanho() const {
-        throw Codigo_erro::sem_comportamento;
-    }
+    virtual long tamanho() const = 0;
+
     /**
      * Pós-condição: retorna verdadeiro se a lista está vazia, caso contrário, retorna falso.
      * @return o estado da lista
      */
-    bool empty() const {
-        throw Codigo_erro::sem_comportamento;
-    }
+    virtual bool empty() const =0;
+
     /**
      * Pós-condição: Todos os nós da lista devem ser removidos. A lista está vazia.
      *
      */
-    void clear() {
-        throw Codigo_erro::sem_comportamento;
-    }
+    virtual void clear() = 0;
     /**
      * Pós-condição: A ação especificada pela função *visit foi realizada em cada Nó da lista.
      * Comçou na posição 0 da lista e seguiu até o final dela, em ordem.
      *
      * @param visit ponteiro para uma função
      */
-    void traverse(void (*visit)(Tipo_info &)) {
-        throw Codigo_erro::sem_comportamento;
-    }
+    virtual void traverse(Visitor<Tipo_info>& visitor) =0; //todo criar a classe de visitor
 
     /**
      *
@@ -67,9 +56,7 @@ public:
      * @param x Conteúdo da posição
      * @return Código de erro para diagnóstico
      */
-    Codigo_erro busca(int posicao, Tipo_info &x) const {
-        throw Codigo_erro::sem_comportamento;
-    }
+    virtual Codigo_erro busca(long posicao, Tipo_info &x) const =0;
 
     /**
      *  Pós-condição: Se posição válida, a função segue:
@@ -80,9 +67,7 @@ public:
      * @param x Conteúdo da posição para troca
      * @return Código de erro para diagnóstico
      */
-    Codigo_erro substitui(int posicao, const Tipo_info &x) {
-        throw Codigo_erro::sem_comportamento;
-    }
+    virtual Codigo_erro substitui(long posicao, const Tipo_info &x) =0;
 
     /**
      * Pós-condição: Se posição válida, a função segue:
@@ -95,9 +80,7 @@ public:
      * @param x Conteúdo da posição removida
      * @return Código de erro para diagnóstico
      */
-    Codigo_erro remove(int posicao, Tipo_info &x) {
-        throw Codigo_erro::sem_comportamento;
-    }
+    virtual Codigo_erro remove(long posicao, Tipo_info &x) =0;
 
     /**
      * Pós-condição: Se posição válida, a função segue:
@@ -108,9 +91,8 @@ public:
      * @param x Conteúdo da posição removida
      * @return Código de erro para diagnóstico
      */
-    Codigo_erro remove(Tipo_info x) {
-        throw Codigo_erro::sem_comportamento;
-    }
+    virtual Codigo_erro remove(Tipo_info x) =0;
+
     /**
      *  Pós-condição: Se posição válida, a função segue:
      *  Um novo nó é criado com a informação x e posicionado no local posicao; todos os outros nós se manterão inalterados.
@@ -121,9 +103,8 @@ public:
      * @param x Conteúdo da posição para inserção
      * @return Código de erro para diagnóstico
      */
-    Codigo_erro insere(int posicao, const Tipo_info &x) {
-        throw Codigo_erro::sem_comportamento;
-    }
+    virtual Codigo_erro insere(long posicao, const Tipo_info& x)=0;
+
     /**
      * Pre:  posicao é uma posição válida na lista; 0 <= posicao < _quantidade_lista.
      * Pos:  Returna um ponteiro para o Nó na posição ou nullptr caso contrário.
@@ -131,18 +112,15 @@ public:
      * @param posicao uma posição na lista
      * @return um ponteiro para o nó ou nulo se não estiver na lista.
      */
-    Node<Tipo_info>* node(int posicao) {
-        throw Codigo_erro::sem_comportamento;
-    }
+    virtual Node_class* node(long posicao) =0;
+
     /**
      * Retorna o nó anterior ao node.
      *
      * @param node ponteiro válido para um nó da lista
      * @return um ponteiro para o anterior ou nullptr caso não seja possível encontrá-lo.
      */
-    Node<Tipo_info>* prev(Node<Tipo_info>* node) {
-        throw Codigo_erro::sem_comportamento;
-    }
+    virtual Node_class* prev(Node_class* node) =0;
 
     /**
      * Retorna o nó seguinte ao node.
@@ -150,34 +128,36 @@ public:
      * @param node ponteiro válido para um nó da lista
      * @return um ponteiro para o seguinte ou nullptr caso não seja possível encontrá-lo.
      */
-    Node<Tipo_info>* next(Node<Tipo_info>* node) {
-        throw Codigo_erro::sem_comportamento;
-    }
+    virtual Node_class* next(Node_class* node) =0;
 
-protected:
     /**
-     * Pre:  posicao é uma posição válida na lista; 0 <= posicao < _quantidade_lista.
-     * Pos:  Returna um ponteiro para o Nó na posição.
-     */
-    Node<Tipo_info> *set_position(int posicao) const {
-        throw Codigo_erro::sem_comportamento;
-    }
-    long& quantidade() {
-        return _quantidade_lista;
-    }
-    Node<Tipo_info> *inicio() {
-        return _inicio;
-    }
-    /**
-     * Pós-condição: Verdadeiro se a posição está fora do intervalo (0 <= posicao < _quantidade_lista) e,
-     * caso contrário, falso.
      *
-     * @param posicao uma posição na lista
-     * @return se a posição é inválida
+     * @param x
+     * @return
      */
-    bool fora_intervalo(int posicao) {
-        return (posicao < 0 || posicao > _quantidade_lista);
-    }
+    virtual Codigo_erro push_front(const Tipo_info& x) =0;
+
+    /**
+     *
+     * @param x
+     * @return
+     */
+    virtual Codigo_erro push_back(const Tipo_info& x) =0;
+
+    /**
+     *
+     * @param x
+     * @return
+     */
+    virtual Codigo_erro pop_front(Tipo_info& x) =0;
+
+    /**
+     *
+     * @param x
+     * @return
+     */
+    virtual Codigo_erro pop_back(Tipo_info& x) =0;
+
 };
 
-#endif /* LIST_SE_H_ */
+#endif /* ILIST_H_ */

@@ -9,6 +9,7 @@
 #define LIST_SE_H_
 
 #include "node.h"
+#include "ilist.h"
 
 /**
  * Complete a implementação da Lista Simplesmente Encadeada.
@@ -16,8 +17,7 @@
  */
 
 template<class Tipo_info>
-class ListaSE
-{
+class ListaSE: public IList<Tipo_info> {
     Node<Tipo_info> *_inicio; //referencia para o nó que inicia a lista
     long _quantidade_lista;  //quantidade de nós na lista
 public:
@@ -61,10 +61,10 @@ public:
      *
      * @param visit ponteiro para uma função
      */
-    void traverse(void (*visit)(Tipo_info)) {
+    void traverse(Visitor<Tipo_info>& visitor) {
         Node<Tipo_info> *tra=_inicio;
         for(long  k=0; k<_quantidade_lista; k++) {
-            (*visit)(tra->info());
+            visitor.visit(tra->info());
             tra=tra->next();
         }
     }

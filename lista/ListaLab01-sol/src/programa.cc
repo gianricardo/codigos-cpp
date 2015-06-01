@@ -8,26 +8,32 @@
 #include <iostream>
 #include <iomanip>
 #include "list-se.h"
+#include "visitor.h"
 
-void print(int w){
-    std::cout << std::setw(4) << w;
-}
+class VisitorOut : public Visitor<int>{
+public:
+    virtual ~VisitorOut(){}
+    void visit(int w){
+        std::cout << std::setw(4) << w;
+    }
+};
 
 int main(int argc, char **argv) {
 
     ListaSE<int> lista1;
+    VisitorOut vo;
     int removido;
     std::cout << "Listas" << std::endl;
     lista1.insere(0,1);
     lista1.insere(1,2);
     lista1.insere(2,3);
     lista1.insere(3,4);
-    lista1.traverse(print);
+    lista1.traverse(vo);
     lista1.pop_back(removido);
     std::cout <<std::endl << removido << std::endl;
     //lista1.clear();
     //std::cout << "\nApagou" << std::endl;
-    lista1.traverse(print);
+    lista1.traverse(vo);
 }
 
 //todo SE com ref no inicio
