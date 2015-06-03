@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include "list-de.h"
 #include "list-se.h"
 #include "visitor.h"
 
@@ -20,20 +21,31 @@ public:
 
 int main(int argc, char **argv) {
 
-    ListaSE<int> lista1;
+    IList<int>* lista1;
+    lista1 = new ListaSE<int>();
     VisitorOut vo;
     int removido;
     std::cout << "Listas" << std::endl;
-    lista1.insere(0,1);
-    lista1.insere(1,2);
-    lista1.insere(2,3);
-    lista1.insere(3,4);
-    lista1.traverse(vo);
-    lista1.pop_back(removido);
+    lista1->insere(0,1);
+    lista1->insere(0,1);
+    lista1->insere(2,2);
+    lista1->insere(3,3);
+    lista1->insere(4,4);
+    lista1->insere(4,1);
+    lista1->traverse(vo);
+    lista1->pop_back(removido);
+    lista1->remove(5);
     std::cout <<std::endl << removido << std::endl;
     //lista1.clear();
     //std::cout << "\nApagou" << std::endl;
-    lista1.traverse(vo);
+    lista1->traverse(vo); std::cout<< "\nantes remove 3" <<std::endl ;
+    lista1->remove(3);
+    lista1->traverse(vo); std::cout<< "\ndepois remove 3" <<std::endl ;
+    lista1->remove(1);
+    lista1->traverse(vo); std::cout<< "\ndepois remove 1" <<std::endl ;
+    lista1->remove(2);
+    lista1->traverse(vo); std::cout<< "\ndepois remove 2" <<std::endl ;
+    delete lista1;
 }
 
 //todo SE com ref no inicio

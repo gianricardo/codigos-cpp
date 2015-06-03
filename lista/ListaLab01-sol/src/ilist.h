@@ -16,7 +16,7 @@
  * Complete a implementação da Lista Simplesmente Encadeada.
  * Onde não está definido a pré-condição é a lista estar criada.
  */
-template<class Tipo_info, class Node_class = Node<Tipo_info> >
+template<class Tipo_info, class Node_class=Node<Tipo_info> >
 class IList {
 
 public:
