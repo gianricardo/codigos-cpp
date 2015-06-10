@@ -9,6 +9,7 @@
 #include <iomanip>
 #include "list-de.h"
 #include "list-se.h"
+#include "list-se-fim.h"
 #include "visitor.h"
 
 class VisitorOut : public Visitor<int>{
@@ -22,16 +23,16 @@ public:
 int main(int argc, char **argv) {
 
     IList<int>* lista1;
-    lista1 = new ListaSE<int>();
+    lista1 = new ListaSE_Fim<int>();
     VisitorOut vo;
     int removido;
     std::cout << "Listas" << std::endl;
-    lista1->insere(0,1);
-    lista1->insere(0,1);
-    lista1->insere(2,2);
-    lista1->insere(3,3);
-    lista1->insere(4,4);
-    lista1->insere(4,1);
+    lista1->insere(0,1);std::cout << "  " << lista1->tamanho() << std::endl;
+    lista1->insere(0,1);std::cout << "  " << lista1->tamanho() << std::endl;
+    lista1->insere(2,2);std::cout << "  " << lista1->tamanho() << std::endl;
+    lista1->insere(3,3);std::cout << "  " << lista1->tamanho() << std::endl;
+    lista1->insere(4,4);std::cout << "  " << lista1->tamanho() << std::endl;
+    lista1->insere(4,1);std::cout << "  " << lista1->tamanho() << std::endl;
     lista1->traverse(vo);
     lista1->pop_back(removido);
     lista1->remove(5);

@@ -25,7 +25,7 @@ public:
         _quantidade_lista = (0);
         _inicio = (nullptr);
     }
-    ~ListaSE() {
+    virtual ~ListaSE() {
         clear();
     }
     /**
@@ -119,7 +119,7 @@ public:
      * @param x Conteúdo da posição removida
      * @return Código de erro para diagnóstico
      */
-    Codigo_erro remove(long posicao, Tipo_info &x) {
+    virtual Codigo_erro remove(long posicao, Tipo_info &x) {
         if (fora_intervalo(posicao)) {
             return Codigo_erro::erro_intervalo;
         }
@@ -182,7 +182,7 @@ public:
      * @param x Conteúdo da posição para inserção
      * @return Código de erro para diagnóstico
      */
-    Codigo_erro insere(long posicao, const Tipo_info& x) {
+    virtual Codigo_erro insere(long posicao, const Tipo_info& x) {
         if (fora_intervalo(posicao)) {
             return Codigo_erro::erro_intervalo;
         }
@@ -283,7 +283,9 @@ protected:
     Node<Tipo_info> *inicio() {
         return _inicio;
     }
-
+    void inicio(Node<Tipo_info> *n_inicio) {
+        _inicio=n_inicio;
+    }
     /**
      * Pós-condição: Verdadeiro se a posição está fora do intervalo (0 <= posicao < _quantidade_lista) e,
      * caso contrário, falso.
