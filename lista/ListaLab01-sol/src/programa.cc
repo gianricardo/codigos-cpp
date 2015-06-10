@@ -10,6 +10,8 @@
 #include "list-de.h"
 #include "list-se.h"
 #include "list-se-fim.h"
+#include "list-se-cur.h"
+#include "list-sec.h"
 #include "visitor.h"
 
 class VisitorOut : public Visitor<int>{
@@ -23,7 +25,7 @@ public:
 int main(int argc, char **argv) {
 
     IList<int>* lista1;
-    lista1 = new ListaSE_Fim<int>();
+    lista1 = new ListaSEC<int>();
     VisitorOut vo;
     int removido;
     std::cout << "Listas" << std::endl;
@@ -48,13 +50,4 @@ int main(int argc, char **argv) {
     lista1->traverse(vo); std::cout<< "\ndepois remove 2"  << " : tam= " << lista1->tamanho()<<std::endl ;
     delete lista1;
 }
-
-//todo SE com ref no inicio
-//todo SE com ref no inicio e no fim
-//todo SE com ref para uma posição corrente e no inicio e fim
-//todo DE com ref no inicio
-//todo DE com ref no inicio e no fim
-//todo DE com ref para uma posição corrente e no inicio e fim
-//todo SE-Circular com ref para uma posição corrente e no inicio e fim
-//todo DE-Circular com ref para uma posição corrente e no inicio e fim
 

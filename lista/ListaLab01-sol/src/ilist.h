@@ -44,7 +44,7 @@ public:
      *
      * @param visit ponteiro para uma função
      */
-    virtual void traverse(Visitor<Tipo_info>& visitor) =0; //todo criar a classe de visitor
+    virtual void traverse(Visitor<Tipo_info>& visitor) =0;
 
     /**
      *
@@ -56,7 +56,7 @@ public:
      * @param x Conteúdo da posição
      * @return Código de erro para diagnóstico
      */
-    virtual Codigo_erro busca(long posicao, Tipo_info &x) const =0;
+    virtual Codigo_erro busca(long posicao, Tipo_info &x) =0;
 
     /**
      *  Pós-condição: Se posição válida, a função segue:

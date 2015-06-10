@@ -19,10 +19,11 @@ template<class Tipo_info>
 class ListaSE_Fim: public ListaSE<Tipo_info> {
     Node<Tipo_info> *_fim;
     typedef ListaSE<Tipo_info> base;
+protected:
     using base::fora_intervalo;
     using base::inicio;
     using base::quantidade;
-
+private:
     Node<Tipo_info>* set_pos(long pos) {
         Node<Tipo_info> *ptrpos;
         ptrpos = inicio();
@@ -33,7 +34,7 @@ class ListaSE_Fim: public ListaSE<Tipo_info> {
     }
 public:
     ListaSE_Fim() :
-            base() {
+        base() {
         _fim = nullptr;
     }
     virtual ~ListaSE_Fim() {
@@ -61,6 +62,10 @@ public:
         }
         x = excluido->info();
         quantidade()--;
+        if(quantidade()==0){
+            inicio(nullptr);
+            fim(nullptr);
+        }
         delete excluido;
         return Codigo_erro::sucesso;
     }
@@ -101,6 +106,9 @@ public:
 protected:
     Node<Tipo_info> *fim() {
         return _fim;
+    }
+    void fim(Node<Tipo_info> *n_fim) {
+        _fim=n_fim;
     }
 
 };
