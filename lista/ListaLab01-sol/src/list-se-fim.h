@@ -60,12 +60,12 @@ public:
             }
         }
         x = excluido->info();
-        quantidade()--;delete
-excluido        ;
+        quantidade()--;
+        delete excluido;
         return Codigo_erro::sucesso;
     }
 
-    virtual Codigo_erro insere(long posicao, const Tipo_info& x) {
+    virtual Codigo_erro insere(long posicao, const Tipo_info& x) override {
         if (fora_intervalo(posicao)) {
             return Codigo_erro::erro_intervalo;
         }

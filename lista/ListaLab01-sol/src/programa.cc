@@ -39,13 +39,13 @@ int main(int argc, char **argv) {
     std::cout <<std::endl << removido << std::endl;
     //lista1.clear();
     //std::cout << "\nApagou" << std::endl;
-    lista1->traverse(vo); std::cout<< "\nantes remove 3" <<std::endl ;
+    lista1->traverse(vo); std::cout<< "\nantes remove 3"  << " : tam= " << lista1->tamanho()<<std::endl ;
     lista1->remove(3);
-    lista1->traverse(vo); std::cout<< "\ndepois remove 3" <<std::endl ;
+    lista1->traverse(vo); std::cout<< "\ndepois remove 3" << " : tam= " << lista1->tamanho() <<std::endl ;
     lista1->remove(1);
-    lista1->traverse(vo); std::cout<< "\ndepois remove 1" <<std::endl ;
+    lista1->traverse(vo); std::cout<< "\ndepois remove 1" << " : tam= " << lista1->tamanho() <<std::endl ;
     lista1->remove(2);
-    lista1->traverse(vo); std::cout<< "\ndepois remove 2" <<std::endl ;
+    lista1->traverse(vo); std::cout<< "\ndepois remove 2"  << " : tam= " << lista1->tamanho()<<std::endl ;
     delete lista1;
 }
 
