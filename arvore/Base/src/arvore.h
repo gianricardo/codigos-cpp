@@ -4,13 +4,14 @@
 #include <iostream>
 #include "codigo_erro.h"
 #include "noarv.h"
+#include "visitor.h"
 
 template<class TStorage>
 class Arvore {
 public:
-    enum ORDEM {
-        PRE, IN, POS
-    };
+//    enum ORDEM {
+//        PRE, IN, POS
+//    };
     Arvore() {
         _raiz = nullptr;
     }
@@ -36,51 +37,58 @@ public:
         return Codigo_erro::sucesso;
 
     }
-    void caminho(ORDEM tipo) {
-        if (tipo == Arvore<TStorage>::IN) {
-            in(_raiz);
-            std::cout << std::endl;
-        } else if (tipo == Arvore<TStorage>::PRE) {
-            pre(_raiz);
-            std::cout << std::endl;
-        } else {
-            pos(_raiz);
-            std::cout << std::endl;
-        }
+
+    void caminho(Visitor<TStorage>& visitor) {
+        visitor.begin();
+        traverse(visitor, _raiz);
+        visitor.end();
     }
 
-    Codigo_erro del(TStorage num){
-        NoArv<TStorage> *pai,*x,*xsucc;
+//    void caminho(Visitor<TStorage>& visitor, ORDEM tipo) {
+//        if (tipo == Arvore<TStorage>::IN) {
+//            in(visitor, _raiz);
+//            std::cout << std::endl;
+//        } else if (tipo == Arvore<TStorage>::PRE) {
+//            pre(visitor, _raiz);
+//            std::cout << std::endl;
+//        } else {
+//            pos(visitor, _raiz);
+//            std::cout << std::endl;
+//        }
+//    }
+
+    Codigo_erro del(TStorage num) {
+        NoArv<TStorage> *pai, *x, *xsucc;
         bool achou;
 
         // If EMPTY TREE
-        if(_raiz==nullptr) {
+        if (_raiz == nullptr) {
             //std::cout<<"\nArvore esta vazia!";
             return Codigo_erro::nao_existe;
         }
-        pai=x=nullptr;
-        encontrarParaApagar(num,achou,pai,x);
-        if(!achou) {
+        pai = x = nullptr;
+        encontrarParaApagar(num, achou, pai, x);
+        if (!achou) {
             //std::cout<<"\nNo nao encontrado!!";
             return Codigo_erro::no_nao_existe;
         }
 
         // Se o nó a apagar tiver duas subarvores
-        if(x->left() != nullptr && x->right() != nullptr) {
-            pai=x;
-            xsucc=x->right();
+        if (x->left() != nullptr && x->right() != nullptr) {
+            pai = x;
+            xsucc = x->right();
 
-            while(xsucc->left() != nullptr) {
-                pai=xsucc;
-                xsucc=xsucc->left();
+            while (xsucc->left() != nullptr) {
+                pai = xsucc;
+                xsucc = xsucc->left();
             }
             x->value(xsucc->value());
-            x=xsucc;
+            x = xsucc;
         }
 
         // Se o nó a apagar não tiver subarvores
-        if(x->left() == nullptr && x->right() == nullptr) {
-            if(pai->right() == x) {
+        if (x->left() == nullptr && x->right() == nullptr) {
+            if (pai->right() == x) {
                 pai->right(nullptr);
             } else {
                 pai->left(nullptr);
@@ -91,8 +99,8 @@ public:
         }
 
         // se o nó apenas tiver subarvore direita
-        if(x->left() == nullptr && x->right() != nullptr ) {
-            if(pai->left() == x) {
+        if (x->left() == nullptr && x->right() != nullptr) {
+            if (pai->left() == x) {
                 pai->left(x->right());
             } else {
                 pai->right(x->right());
@@ -103,8 +111,8 @@ public:
         }
 
         // se o nó apenas tiver subarvore esquerda
-        if(x->left() != nullptr && x->right() == nullptr) {
-            if(pai->left() == x) {
+        if (x->left() != nullptr && x->right() == nullptr) {
+            if (pai->left() == x) {
                 pai->left(x->left());
             } else {
                 pai->right(x->left());
@@ -115,29 +123,74 @@ public:
         }
         return Codigo_erro::falha;
     }
+
+//    void print1() {
+//        print1pre(_raiz);
+//    }
+    NoArv<TStorage> * root() {
+        return _raiz;
+    }
+    void insertLeft(NoArv<TStorage> *node, TStorage info) {
+        NoArv<TStorage> *novo;
+        if (node->left() == nullptr) {
+            novo = new NoArv<TStorage>(info);
+            node->left(novo);
+        }
+    }
+    void insertRight(NoArv<TStorage> *node, TStorage info) {
+        NoArv<TStorage> *novo;
+        if (node->right() == nullptr) {
+            novo = new NoArv<TStorage>(info);
+            node->right(novo);
+        }
+    }
 protected:
 private:
-    void in(NoArv<TStorage> *raiz) {
+//    void print1pre(NoArv<TStorage> *raiz) {
+//        std::cout << "(";
+//        if (raiz != nullptr) {
+//            std::cout << raiz->value();
+//        }
+//        std::cout << ":";
+//        if (raiz != nullptr) {
+//            print1pre(raiz->left());
+//        }
+//        std::cout << ",";
+//        if (raiz != nullptr) {
+//            print1pre(raiz->right());
+//        }
+//        std::cout << ")";
+//    }
+    void traverse(Visitor<TStorage>& visitor, NoArv<TStorage> *raiz) {
         if (raiz != nullptr) {
-            in(raiz->left());
-            std::cout << "  " << raiz->value();
-            in(raiz->right());
+            visitor.pre(raiz->value());
+            traverse(visitor, raiz->left());
+            visitor.in(raiz->value());
+            traverse(visitor, raiz->right());
+            visitor.pos(raiz->value());
         }
     }
-    void pre(NoArv<TStorage> *raiz) {
-        if (raiz != nullptr) {
-            std::cout << "  " << raiz->value();
-            pre(raiz->left());
-            pre(raiz->right());
-        }
-    }
-    void pos(NoArv<TStorage> *raiz) {
-        if (raiz != nullptr) {
-            pos(raiz->left());
-            pos(raiz->right());
-            std::cout << "  " << raiz->value();
-        }
-    }
+//    void in(Visitor<TStorage>& visitor, NoArv<TStorage> *raiz) {
+//        if (raiz != nullptr) {
+//            in(visitor, raiz->left());
+//            visitor.visit(raiz->value());
+//            in(visitor, raiz->right());
+//        }
+//    }
+//    void pre(Visitor<TStorage>& visitor, NoArv<TStorage> *raiz) {
+//        if (raiz != nullptr) {
+//            visitor.visit(raiz->value());
+//            pre(visitor, raiz->left());
+//            pre(visitor, raiz->right());
+//        }
+//    }
+//    void pos(Visitor<TStorage>& visitor, NoArv<TStorage> *raiz) {
+//        if (raiz != nullptr) {
+//            pos(visitor, raiz->left());
+//            pos(visitor, raiz->right());
+//            visitor.visit(raiz->value());
+//        }
+//    }
     void encontrarPai(TStorage n, bool &encontrou, NoArv<TStorage>* &pai) {
         NoArv<TStorage> *q;
         encontrou = false;
