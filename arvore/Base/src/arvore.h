@@ -124,9 +124,9 @@ public:
         return Codigo_erro::falha;
     }
 
-//    void print1() {
-//        print1pre(_raiz);
-//    }
+    void print1() {
+        print1pre(_raiz);
+    }
     NoArv<TStorage> * root() {
         return _raiz;
     }
@@ -146,21 +146,21 @@ public:
     }
 protected:
 private:
-//    void print1pre(NoArv<TStorage> *raiz) {
-//        std::cout << "(";
-//        if (raiz != nullptr) {
-//            std::cout << raiz->value();
-//        }
-//        std::cout << ":";
-//        if (raiz != nullptr) {
-//            print1pre(raiz->left());
-//        }
-//        std::cout << ",";
-//        if (raiz != nullptr) {
-//            print1pre(raiz->right());
-//        }
-//        std::cout << ")";
-//    }
+    void print1pre(NoArv<TStorage> *raiz) {
+        std::cout << "(";
+        if (raiz != nullptr) {
+            std::cout << raiz->value();
+        }
+        std::cout << ":";
+        if (raiz != nullptr) {
+            print1pre(raiz->left());
+        }
+        std::cout << ",";
+        if (raiz != nullptr) {
+            print1pre(raiz->right());
+        }
+        std::cout << ")";
+    }
     void traverse(Visitor<TStorage>& visitor, NoArv<TStorage> *raiz) {
         if (raiz != nullptr) {
             visitor.pre(raiz->value());
