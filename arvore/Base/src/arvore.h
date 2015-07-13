@@ -144,8 +144,22 @@ public:
             node->right(novo);
         }
     }
+
+    void invert() {
+        invertTree(_raiz);
+    }
 protected:
 private:
+    void invertTree(NoArv<TStorage> *raiz) {
+        if (raiz != nullptr) {
+            invertTree(raiz->left());
+            invertTree(raiz->right());
+            NoArv<TStorage> *temp;
+            temp = raiz->left();
+            raiz->left(raiz->right());
+            raiz->right(temp);
+        }
+    }
     void print1pre(NoArv<TStorage> *raiz) {
         std::cout << "(";
         if (raiz != nullptr) {
